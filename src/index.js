@@ -1,10 +1,10 @@
 module.exports = function toReadable(number) {
-    if (number == 0)
+    if (number === 0)
         return "zero";
     return three(number);
 
     function two(num) {
-        if (num == 0)
+        if (num === 0)
             return "";
         else if (num < 10)
             return one(num);
@@ -13,7 +13,7 @@ module.exports = function toReadable(number) {
         else {
             let tenner = Math.floor(num / 10);
             let rest = num - tenner * 10;
-            if (rest != 0)
+            if (rest !== 0)
                 return ten(tenner) + " " + one(rest);
             else
                 return ten(tenner);
@@ -24,11 +24,11 @@ module.exports = function toReadable(number) {
         let hundred = Math.floor(num / 100);
         rest = num - hundred * 100;
         let res = "";
-        if (hundred != 0 && rest != 0)
+        if (hundred !== 0 && rest !== 0)
             res = one(hundred) + " hundred " + two(rest);
-        else if ((hundred == 0) && (rest != 0))
+        else if ((hundred === 0) && (rest !== 0))
             res = two(rest);
-        else if ((hundred != 0) && (rest == 0))
+        else if ((hundred != 0) && (rest === 0))
             res = one(hundred) + " hundred";
         return res;
     }
